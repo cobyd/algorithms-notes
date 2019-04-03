@@ -42,7 +42,7 @@ For insertion sort, we can break each line into a cost per call, and a count of 
 
 | code                              | cost   | count                                                                      |
 | --------------------------------- | ------ | -------------------------------------------------------------------------- |
-| `(1..arr.count - 1).each do |j|`  | 1 unit | n times                                                                    |
+| `(1..arr.count - 1).each do`      | 1 unit | n times                                                                    |
 | `key = arr[j]`                    | 1 unit | n-1 times                                                                  |
 | `i = j - 1`                       | 1 unit | n-1 times                                                                  |
 | `while i >= 0 && arr[i] > key do` | 1 unit | Sum from 1 to n-1 of t, where t is how many times the while loop evaluates |
