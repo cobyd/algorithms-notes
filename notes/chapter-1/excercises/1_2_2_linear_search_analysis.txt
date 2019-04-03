@@ -1,0 +1,3 @@
+On average, linear search will return after viewing half of the input.  Worst case, linear search will return after viewing all of the input.
+
+Both n/2 and n scale linearly with input, so we can simplify and say average and worst case are both O(n)

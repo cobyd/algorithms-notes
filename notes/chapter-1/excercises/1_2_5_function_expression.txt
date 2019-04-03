@@ -1,0 +1,1 @@
+n3/1000 - 100n2 - 100n + 3 is O(n^3).  The dominant factor is the n^3 that will scale cubically with input size.

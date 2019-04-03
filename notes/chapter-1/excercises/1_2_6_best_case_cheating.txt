@@ -1,0 +1,1 @@
+Any algo can be modified to have a good best case by simply checking if it's done and returning if true.  Then if the input already meets the desired output standard, the best case will be O(1).
