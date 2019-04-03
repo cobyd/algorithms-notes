@@ -40,15 +40,16 @@ To define the running time of an algo, we assume that the time it takes to execu
 
 For insertion sort, we can break each line into a cost per call, and a count of calls:
 
-|code|cost|count|
-|`(1..arr.count - 1).each do |j|`|1 unit|n times|
-|`key = arr[j]`|1 unit|n-1 times|
-|`i = j - 1`|1 unit|n-1 times|
-|`while i >= 0 && arr[i] > key do`|1 unit|Sum from 1 to n-1 of t, where t is how many times the while loop evaluates|
-|`arr[i + 1] = arr[i]`|1 unit|Sum from 1 to n-1 of t-1|
-|`i = i - 1`|1 unit|Sum from 1 to n-1 of t-1|
-|`arr[i + 1] = key`|1 unit| n-1 times|
-|`arr`|1 unit|1 time|
+| code                              | cost   | count                                                                      |
+| --------------------------------- | ------ | -------------------------------------------------------------------------- |
+| `(1..arr.count - 1).each do |j|`  | 1 unit | n times                                                                    |
+| `key = arr[j]`                    | 1 unit | n-1 times                                                                  |
+| `i = j - 1`                       | 1 unit | n-1 times                                                                  |
+| `while i >= 0 && arr[i] > key do` | 1 unit | Sum from 1 to n-1 of t, where t is how many times the while loop evaluates |
+| `arr[i + 1] = arr[i]`             | 1 unit | Sum from 1 to n-1 of t-1                                                   |
+| `i = i - 1`                       | 1 unit | Sum from 1 to n-1 of t-1                                                   |
+| `arr[i + 1] = key`                | 1 unit | n-1 times                                                                  |
+| `arr`                             | 1 unit | 1 time                                                                     |
 
 We can describe the cost to run the algorithm as the dot product of cost \* count.
 
