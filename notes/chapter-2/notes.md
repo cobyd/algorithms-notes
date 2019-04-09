@@ -1,4 +1,4 @@
-## Asymptotic Notation
+## 2.1 Asymptotic Notation
 
 This section discusses the different notations used to express asymptotic information about a function.
 
@@ -73,3 +73,7 @@ Because these properties hold for asymptotic notations, one can draw an analogy 
 One property of real numbers, however, does not carry over to asymptotic notation:
 
 Trichotomy: For any two real numbers a and b, exactly one of the following must hold: a < b, a = b, or a > b.
+
+## 2.2 Standard Notations and Common Functions
+
+This sections delves into common math notations and identies. Specifically exponent and logarithm rules, factorials, fibonacci numbers, etc... Nothing that is really worth note-taking on if one is already familiar with these things.
