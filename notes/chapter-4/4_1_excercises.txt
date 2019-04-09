@@ -1,0 +1,33 @@
+1. Show that the solution of T(n) = T(n/2) + 1 is O(lg n)
+
+c * log(n/2) + 1
+c * log(n) - c * log(2) + 1
+c * log(n) # for c >= 1
+
+
+2. Show that the solution of T(n) = 2T(n/2) + n is (n lg n). Conclude that the solution is (n lg n)
+
+2c(n/2)log(n/2) + n
+cnlog(n) - cnlog(2) + n
+cnlog(n) # for c >= 1
+
+ex. 8
+
+2(8/2) + 8 < 8log(8)
+16 < 24
+
+
+5. Show that the solution to T(n) = 2T(n/2 + 17) + n is O(n lg n)
+
+2c(n/2)log(n/2) + n - b
+cnlog(n) - cnlog(2) + n - b
+cnlog(n) - b # for c >= 1 and b >= 17
+
+
+6. Solve the recurrence T(n) = 2T(sqrt(n)) + 1 by making a change of variables. Do not worry about whether values are integral
+
+T(2^m) = 2c(2^(m/2)) + 1
+S(m) = 2S(m/2) + 1
+
+S(m) = O(log(m)) # ex 1
+T(n) = O(log(log(n)))
