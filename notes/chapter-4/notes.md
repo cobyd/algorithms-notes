@@ -26,10 +26,15 @@ An example: `T(n) = 2T(|n/2|) + n`
 This looks similar to merge sort, so we would guess that this is bounded by O(nlogn). If we plug in our "guess" we get:
 
 `T(n) = 2T(|n/2|) + n <= cnlogn` for n > n0
+
 `T(n) = 2(cn/2) * log(n/2)) + n`
+
 `... cn * log(n/2) + n`
+
 `... cn * log(n) - cn * log(2) + n`
+
 `... cn * log(n) - cn + n` # log is log base 2
+
 `T(n) <= cnlog(n)` # - cn + n is negative for c > 1, so T(n) is only bounded in this case for c >= 1
 
 ### Subtleties
@@ -43,12 +48,15 @@ Consider:
 We guess T(n) = O(n), so
 
 `T(n) = c(n/2) + c(n/2) + 1`
+
 `T(n) = cn + 1` # This is not <= cn
 
 To overcome this, we can subtract a lower order term in our substition:
 
 `T(n) = c(n/2) - b + c(n/2) - b + 1`
+
 `... cn - 2b + 1`
+
 `T(n) <= cn - b` # when b >= 1, which means T(n) <= cn so it is O(n)
 
 ### Pitfalls
