@@ -76,4 +76,5 @@ This is a difficult reccurence, but sub in m for log(n) and you get
 Then we can write a new recurrence
 
 `S(m) = 2S(m/2) + m` # This is now in the familiar form. We know this is O(mlog(m))
-`T(n) = O(mlog(m)) = O(log(n) \* log(log(n)))
+
+`T(n) = O(mlog(m)) = O(log(n) * log(log(n)))`
