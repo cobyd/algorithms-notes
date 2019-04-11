@@ -78,3 +78,29 @@ Then we can write a new recurrence
 `S(m) = 2S(m/2) + m` # This is now in the familiar form. We know this is O(mlog(m))
 
 `T(n) = O(mlog(m)) = O(log(n) * log(log(n)))`
+
+## 4.2 The Iteration Method
+
+The iteration method consists of building out the summation of each recursion and then solving the algebra to arrive at a solution.
+
+EX.
+
+`T(n) = 3T(n/4) + n`
+
+`= n + 3(n/4 + T(n/16))`
+
+`= n + 3(n/4 + 3(n/16 + T(n/64))) ...`
+
+`= n + 3n/4 + 9n/16 + 27n/64 ...`
+
+Intuitively, the denominator is increasing by a factor of 4, and the n term is multiplied by a factor of 3 each time. So each term is getting smaller and smaller. One must continue summing until the next T(n) term is 1. So for higher n, you will need more terms, but as stated, the higher the merginal value of n, the lower the marginal value of the function. So we know this function will work out to O(n) or lower.
+
+The math:
+
+The final term can be written as 3^log(base4)(n) \* O(1) # TODO: How is this term derived?
+
+The series can be rewritten as:
+
+`n * summation 0 to inf((3/4)^i + O(n^log(base4)(3)))` # rewrite the log using log rules
+
+`4n + O(n) == O(n)` # Sum of 3/4 is 4 and log(base4)(3) is < 1 so it is O(n)
