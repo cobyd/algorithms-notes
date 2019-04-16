@@ -104,3 +104,74 @@ The series can be rewritten as:
 `n * summation 0 to inf((3/4)^i + O(n^log(base4)(3)))` # rewrite the log using log rules
 
 `4n + O(n) == O(n)` # Sum of 3/4 is 4 and log(base4)(3) is < 1 so it is O(n)
+
+## 4.3 The Master Method
+
+`T(n) = aT(n/b)+â(n)`
+
+Where a >= 1 and b > 1 are constants, and â(n) is an asymptotically positive function.
+
+The above recurrence solves for the runtime of an algorithm that divides a problem of size n into a sub-problems, each of size n/b.
+
+There are 3 basic cases that tell you the complexity of T(n):
+
+1. If the work to break up the problems outweighs the work to combine the results, then the function is leaf-heavy and it will be O(n^log(base(b))(a))
+
+2. If the work of each side is comparable, then the fucntion is O(n^log(base(b))(a) \* log(n))
+
+3. If the work of recombining outweighs the work to break up the problem, the problem is node heavy, and the function is simply dominated by the recombining function, so O(â(n))
+
+These cases are not all inclusive. If a function â(n) is smaller than n^log(base(b))(a), but not polynomially smaller, or the same for larger, then this method can't be used. Most asymptotically bound functions will fall into one of the 3 cases though.
+
+### Using the Master Method
+
+Consider `T(n) = 9T(n/3) + n`
+
+Each time we perform recurscion, we make 9 new problems of size n/3. This already sounds like a lot of work. Let's plug it into the theorem.
+
+a = 9
+b = 3
+
+The expression n^log(base(b))(a) works out to n^2, which is polynomially larger than n, so T(n) = O(n^2)
+
+Consider `T(n) = T(2n/3) + 1`
+
+a = 1
+b = 3/2
+
+The expression is n^log(1) == 0, so O(1), and â = O(1), so this will be case 2. We tack on a factor of log(n), getting: O(log(n))
+
+Consider `T(n) = 3T(n/4) + n lg n`
+
+a = 3
+b = 4
+
+The expression n^(.793) < n \* log(n) for high enough values of n, so T(n) = O(nlog(n))
+
+### Exercises
+
+`T(n) = 4T(n/2) + n`
+
+a = 4
+b = 2
+
+O(n^2) >> O(n) => O(n^2)
+
+`T(n) = 4T(n/2) + n^2`
+
+a = 4
+b = 2
+
+O(n^2) ~~ O(n^2) => O(n^2log(n))
+
+`T(n) = 4T(n/2) + n3`
+
+O(n^2) << O(n^3) => O(n^3)
+
+```The running time of an algorithm A is described by the recurrence T(n) = 7T(n/2) + n^2. A competing algorithm A' has a running time of T'(n) = aT'(n/4) + n^2. What is the largest integer value for a such that A' is asymptotically faster than A?
+
+```
+
+log(base(2)(7) = log(base(4)(a))
+
+flor(4 ^ log(base(2)(7)) = largest value of a
